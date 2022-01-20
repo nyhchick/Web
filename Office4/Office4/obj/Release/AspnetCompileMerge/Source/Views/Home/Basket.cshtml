@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Basket";
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Корзина покупок</h2>
+    <div class="thumbnail" style="box-shadow: 0 0 10px 1px;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th class="text-center">Производитель</th>
+                    <th class="text-right">Цена</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var b in ViewBag.ThisBasket)
+                {
+                    <tr>
+                        <td class="text-left">@b.Name</td>
+                        <td class="text-center">"@b.Company"</td>
+                        <td class="text-right">@b.Price руб</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="text-left"><strong>Итого:</strong></td>
+                    <td class="text-center"><strong>@ViewBag.Total руб</strong></td>
+                </tr>
+
+            </tfoot>
+
+        </table>
+        <div>
+            <a class="btn btn-primary btn-lg" href="/Home/Buy/@ViewBag.BasketId">Купить</a>
+        </div>
+        
+    </div>
+</body>
+</html>
+
